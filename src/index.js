@@ -2,11 +2,11 @@ const express = require('express');
 const v1WorkoutRouter = require('./v1/routes/workoutRoutes');
 
 const app = express();
-
+app.use(express.json());
 app.use("/api/v1/workouts",v1WorkoutRouter);
 
 app.use((req, res, next) =>{
-    res.status(404).json({message: 'end point not found'});
+    res.status(404).json({message: 'end point not found, sorry'});
 })
 
 const PORT = process.env.PORT || 3000;
